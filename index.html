@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JA</title>
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="image/icon.png">
+    <link rel="stylesheet" href="../static/styles/index.css">
+
+    <style>
+        @keyframes rotate-goBack {
+            from {
+                transform: translateX(100px) translateY(-1400px) scale(6);
+            }
+            to {
+                transform: translate(var(--tx), var(--ty)) scale(1) rotateX(0deg) rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+
+    <main>
+        <section id="section1">
+            <button onclick="moveFunction()" class="btn1" id="randomBtn">投骰子</button>
+            <div id="Box3D">
+                <div class="front cubeSide">4</div>
+                <div class="back cubeSide">3</div>
+                <div class="left cubeSide">2</div>
+                <div class="right cubeSide">5</div>
+                <div class="top cubeSide">1</div>
+                <div class="bottom cubeSide">6</div>
+            </div>
+            <div id="gameBox">
+
+                <div class="cell" style="grid-column: 1;grid-row: 1;">Start Point</div>
+                <div class="cell" style="grid-column: 1;grid-row: 2;">1</div>
+                <div class="cell" style="grid-column: 1;grid-row: 3;background-color: greenyellow;">2</div>
+                <div class="cell" style="grid-column: 1;grid-row: 4;background-color: aqua;">3</div>
+                <div class="cell" style="grid-column: 1;grid-row: 5;">4</div>
+                <div class="cell" style="grid-column: 1;grid-row: 6;">5</div>
+                <div class="cell" style="grid-column: 1;grid-row: 7;background-color: greenyellow;">6</div>
+                <div class="cell" style="grid-column: 1;grid-row: 8;background-color: orangered;">7</div>
+                <div class="cell" style="grid-column: 2;grid-row: 8;background-color: aqua;">8</div>
+                <div class="cell" style="grid-column: 3;grid-row: 8;">9</div>
+                <div class="cell" style="grid-column: 4;grid-row: 8;background-color: greenyellow;">10</div>
+                <div class="cell" style="grid-column: 5;grid-row: 8;">11</div>
+                <div class="cell" style="grid-column: 6;grid-row: 8;background-color: orangered;">12</div>
+                <div class="cell" style="grid-column: 6;grid-row: 7;background-color: aqua;">13</div>
+                <div class="cell" style="grid-column: 6;grid-row: 6;">14</div>
+                <div class="cell" style="grid-column: 6;grid-row: 5;background-color: greenyellow;">15</div>
+                <div class="cell" style="grid-column: 6;grid-row: 4;background-color: aqua;">16</div>
+                <div class="cell" style="grid-column: 6;grid-row: 3;background-color: aqua;">17</div>
+                <div class="cell" style="grid-column: 6;background-color: greenyellow;">18</div>
+                <div class="cell" style="grid-column: 6;grid-row: 1;background-color: orangered;">19</div>
+                <div class="cell" style="grid-column: 5;grid-row: 1;">20</div>
+                <div class="cell" style="grid-column: 4;grid-row: 1;">21</div>
+                <div class="cell" style="grid-column: 3;grid-row: 1;background-color: aqua;">22</div>
+                <div class="cell" style="grid-column: 2;grid-row: 1;background-color: greenyellow;">23</div>
+                
+
+                <div id="gameBox2" style="grid-column: 2/6;grid-row: 2/8;">
+                    <div class="cell" style="background: linear-gradient(to right, aqua , orangered);grid-column: 1;grid-row: 1;border-top-left-radius: 18px;">25</div>
+                    <div class="cell" style="grid-column: 1;grid-row: 2;">26</div>
+                    <div class="cell" style="grid-column: 1;grid-row: 3;">27</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 1;grid-row: 4;">28</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 1;grid-row: 5;">29</div>
+                    <div class="cell" style="grid-column: 1;grid-row: 6;">30</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 1;grid-row: 7;">31</div>
+                    <div class="cell" style="grid-column: 1;grid-row: 8;border-bottom-left-radius: 18px;background-color: orangered;">32</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 2;grid-row: 8;">33</div>
+                    <div class="cell" style="grid-column: 3;grid-row: 8;">34</div>
+                    <div class="cell" style="grid-column: 4;grid-row: 8;">35</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 5;grid-row: 8;">36</div>
+                    <div class="cell" style="background: linear-gradient(to right, aqua , orangered);grid-column: 6;grid-row: 8;border-bottom-right-radius: 18px;">37</div>
+                    <div class="cell" style="grid-column: 6;grid-row: 7;">38</div>
+                    <div class="cell" style="grid-column: 6;grid-row: 6;">39</div>
+                    <div class="cell" style="grid-column: 6;grid-row: 5;">40</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 6;grid-row: 4;">41</div>
+                    <div class="cell" style="grid-column: 6;grid-row: 3;">42</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 6;">43</div>
+                    <div class="cell" style="grid-column: 6;grid-row: 1;border-top-right-radius: 18px;background-color: orangered;">44</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 5;grid-row: 1;">45</div>
+                    <div class="cell" style="grid-column: 4;grid-row: 1;">46</div>
+                    <div class="cell" style="background-color: aqua;grid-column: 3;grid-row: 1;">47</div>
+                    <div class="cell" style="grid-column: 2;grid-row: 1;">48</div>
+                    
+
+                    <div id="gameBox3" style="grid-column: 2/6;grid-row: 2/8;">
+                        <div class="point"></div>
+                        <div class="point"></div>
+                        <div class="point"></div>
+                        <div class="point">End</div>
+                    </div>
+                </div>
+
+                <img src="../templates/image/Ladder_(S)_JE4.png" , style="position: absolute;z-index: 20;left:420px;top:20px;transform: scaleX(-1);user-select: none;pointer-events: none;" height="280px" width="240px" draggable="false">
+
+                <!--
+                <div id="endBox">
+                    <div id="point4Box">
+                        <div class="point" id="point1"></div>
+                        <div class="point" id="point2"></div>
+                        <div class="point" id="point3"></div>
+                        <div class="point" id="point4"></div>
+                    </div>
+                    <div class="point" id="point5">End Point</div>
+                </div>
+                -->
+
+                <div id="p1" class="player">P1</div>
+                <div id="p2" class="player">P2</div>
+            </div>
+
+            
+
+
+        </section>
+
+        <section id="section2">
+            <div class="infoBox">
+                <div class="playerInfo"><p>P1:</p><span>
+                    <p style="font-weight: bold;" class="foodCount">食物: -.-</p>
+                    <p style="font-weight: bold;" class="roleInfo">角色:</p>
+                </span></div>
+                <div class="playerInfo"><p>P2:</p><span>
+                    <p style="font-weight: bold;" class="foodCount">食物: -.-</p>
+                    <p style="font-weight: bold;" class="roleInfo">角色:</p>
+                </span></div>
+            </div>
+        </section>
+
+
+        <section id="section3">
+            <h1>Board Game</h1>
+
+            <div class="gameInfo">
+                <p>游戲玩法:</p>
+                <p>人數: 2-5</p>
+                <p>● 每位玩家需要先抽牌/自行決定自己的角色</p>
+                <p>● *每位玩家初始食物量：15</p>
+                <p>● 玩家經過特別的食物繳交格便要繳交自身體型相對應的食物量</p>
+                <p>● 過程中每位玩家可能會踩到「事件」格子抽取牌（當中包括危機/機會牌）</p>
+                <p>● 抽到「機會」牌便可以獲得食物/向前進，機會牌可以留到之後回合使用</p>
+                <p>● 「危機」牌有機會是損失食物/向後退</p>
+                <p>● *Battle：如果同一個格有多個動物，多位玩家將進行battle</p>
+                <p>● 最快到達終點的玩家為勝利</p>
+                <p>● 可以抽取結局牌，結局有好有壞 :D</p>
+            </div>
+            <button onclick="choseCharacter()" class="btn2">選擇角色</button>
+        </section>
+
+        <section id="section4">
+            <h2 style="position: absolute; top:40px" id="choseCharacterInfoBox">選擇角色 ---- 玩家1</h1>
+
+            <div class="choseBox">
+                <div class="cBox"><div class="card canRotation" Character="成年紅耳龜"></div><h3>成年紅耳龜</h3></div>
+                <div class="cBox"><div class="card canRotation" Character="流浪兔"></div><h3>流浪兔</h3></div>
+                <div class="cBox"><div class="card canRotation" Character="哈士奇"></div><h3>哈士奇</h3></div>
+                <div class="cBox"><div class="card canRotation" Character="中華田園犬"></div><h3>中華田園犬</h3></div>
+                <div class="cBox"><div class="card canRotation" Character="鸚鵡"></div><h3>鸚鵡</h3></div>
+                <div class="cBox"><div class="card canRotation" Character="三花"></div><h3>三花</h3></div>
+                <div class="cBox"><div class="card canRotation" Character="布偶貓"></div><h3>布偶貓</h3></div>
+            </div>
+            <button onclick="startGame()" class="btn2">開始遊玩</button>
+        </section>
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+    
+    <script src="../static/javascript/index.js"></script>
+</body>
+</html>
+echo "# mo.github.io" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Mo080808/mo.github.io.git
+git push -u origin main
