@@ -1,0 +1,557 @@
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Noto Sans TC',sans-serif !important;
+}
+
+body {
+    background-color: snow;
+}
+
+#section1 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 1200px;
+    position: relative;
+}
+
+#section2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    position: relative;
+}
+
+#gameBox {
+    position: relative;
+    margin-top: 120px;
+    border: black solid 3px;
+    height: 1200px;
+    width: 1800px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 1px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+#endBox {
+    position: absolute;
+    width: 1200px;
+    height: 715px;
+    left: 298px;
+    top: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.point {
+    border: solid black 2px;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+} .point:nth-child(2) {
+    left: 100px;
+    top: 80px;
+    background-color: aqua;
+} .point:nth-child(3) {
+    left: 200px;
+    top: 160px;
+} .point:nth-child(4) {
+    width: 240px;
+    left: 300px;
+    top: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+#point4Box {
+    display: flex;
+    margin-bottom: 120px;
+} #point4Box .point {
+    margin: 0px 60px;
+}
+
+#point5 {
+    width: 400px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+*/
+
+.cell {
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+#gameBox2 {
+    position: relative;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: center;
+    margin: 80px;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 1px;
+} #gameBox2::after {
+    content: "";
+    position: absolute;
+    border: 1px solid black;
+    left: -15%;
+    top: -17.5%;
+    z-index: -2;
+    background-color: snow;
+    height: 135%;
+    width: 130%;
+    border-radius: 20px;
+} #gameBox2::before {
+    content: "";
+    position: absolute;
+    border: 2px solid black;
+    left: 18px;
+    top: 18px;
+    z-index: -1;
+    height: 605px;
+    width: 998px;
+    border-radius: 20px;
+}
+
+#gameBox3 {
+    position: relative;
+    border: 1px solid black;
+    text-align: center;
+    margin: 50px;
+    z-index: 1;
+} #gameBox3::after {
+    content: "";
+    position: absolute;
+    border: 1px solid black;
+    left: -15%;
+    top: -20%;
+    z-index: -2;
+    background-color: snow;
+    height: 140%;
+    width: 130%;
+    border-radius: 20px;
+} #gameBox3::before {
+    content: "";
+    position: absolute;
+    border: 2px solid black;
+    left: -85px;
+    top: -70px;
+    z-index: -1;
+    height: 490px;
+    width: 730px;
+    border-radius: 20px;
+}
+
+
+.btn1 {
+    background-color: cornsilk;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: black solid 3px;
+}
+
+button:nth-child(1) {
+    position: absolute;
+    margin: 60px 0 0 -2000px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 18px;
+    font-weight: bold;
+    top: 480px;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 6;
+} button:nth-child(1):active {
+    background-color: antiquewhite;
+    border: rgb(0, 136, 136) solid 3px;
+    scale: 0.95;
+    color: rgb(66, 66, 66);
+}
+
+.front {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-color: hsl(175deg 100% 70%);
+    transform: translateZ(125px);
+}
+
+.back {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-color: hsl(190deg 100% 70%);
+    transform: translateZ(-125px) rotate(180deg) scaleY(-1);
+}
+
+.left {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-color: hsl(235deg 100% 70%);
+    transform: translateX(125px) rotateY(90deg);
+}
+
+.right {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-color: hsl(275deg 100% 70%);
+    transform: translateX(-125px) rotateY(90deg) scaleX(-1);
+}
+
+.top {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-color: hsl(315deg 100% 70%);
+    transform: translateY(-125px) rotateX(90deg);
+}
+
+.bottom {
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    background-color: hsl(355deg 100% 70%);
+    transform: translateY(125px) rotateX(90deg) rotate(90deg) scaleY(-1);
+}
+
+.cubeSide {
+    font-size: 88px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(45deg) rotateY(45deg);
+    } 25% {
+        transform: rotateX(-45deg) rotateY(45deg);
+    } 50% {
+        transform: rotateX(-45deg) rotateY(-45deg);
+    } 75% {
+        transform: rotateX(45deg) rotateY(-45deg);
+    } 100% {
+        transform: rotateX(45deg) rotateY(45deg);
+    }
+}
+
+
+
+#Box3D {
+    scale: 0.1;
+    position: absolute;
+    height: 250px;
+    width: 250px;
+    margin: -80px 0 0 -2015px;
+    transform-style: preserve-3d;
+    transform: perspective(4000px) rotateX(-15deg) rotateY(-35deg);
+    z-index: 5;
+}
+
+
+@keyframes rotate-to-1 {
+    0% {
+        transform: translateX(0) translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+    } 20% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-90deg) rotateY(360deg);
+    } 40% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-180deg) rotateY(720deg);
+    } 60% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-270deg) rotateY(1080deg);
+    } 80% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-360deg) rotateY(1440deg);
+    } 100% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-450deg) rotateY(1800deg);
+    }
+}
+
+@keyframes rotate-to-2 {
+    0% {
+        transform: translateX(0) translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+    } 20% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-360deg) rotateY(-90deg);
+    } 40% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-720deg) rotateY(-180deg);
+    } 60% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-1080deg) rotateY(-270deg);
+    } 80% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-1440deg) rotateY(-360deg);
+    } 100% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(-1800deg) rotateY(-450deg);
+    }
+}
+
+@keyframes rotate-to-3 {
+    0% {
+        transform: translateX(0) translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+    } 20% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(360deg) rotateY(-90deg);
+    } 40% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(720deg) rotateY(-180deg);
+    } 60% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(1080deg) rotateY(-270deg);
+    } 80% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(1440deg) rotateY(-360deg);
+    } 100% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(1800deg) rotateY(-540deg);
+    }
+}
+
+@keyframes rotate-to-4 {
+    0% {
+        transform: translateX(0) translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+    } 20% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(360deg) rotateY(360deg);
+    } 100% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(2160deg) rotateY(2160deg);
+    }
+}
+
+@keyframes rotate-to-5 {
+    0% {
+        transform: translateX(0) translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+    } 20% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(360deg) rotateY(90deg);
+    } 100% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(2160deg) rotateY(1170deg);
+    }
+}
+
+@keyframes rotate-to-6 {
+    0% {
+        transform: translateX(0) translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+    } 20% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(90deg) rotateY(90deg);
+    } 100% {
+        transform: translateX(100px) translateY(-1400px) scale(6) rotateX(1170deg) rotateY(1170deg);
+    }
+}
+
+
+
+
+
+.player {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: black;
+    border-radius: 50%;
+    top: 25px;
+    left: 90px;
+    z-index: 500;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    box-shadow: rgb(74, 74, 74) 0 0 20px 5px;
+    transition: all .3s;
+    border: 2px black solid;
+}
+
+#p1 {
+    left: 60px;
+    background-color: greenyellow;
+    opacity: 80%;
+    box-shadow: greenyellow 0 0 20px 5px;
+}
+
+#p2 {
+    left: 175px;
+    background-color: goldenrod;
+    box-shadow: goldenrod 0 0 20px 5px;
+    opacity: 80%;
+}
+
+
+
+
+#OverlappingShow {
+    background-color:  rgb(51, 51, 51);
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    transition: all 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 5%;
+}
+
+
+
+
+
+
+
+.infoBox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 52px;
+    font-weight: bold;
+    background-color: beige;
+    border-radius: 15px;
+    border: rgb(110, 110, 110) solid 5px;
+    padding: 10px 15px;
+    width: 1200px;
+    margin: 20px 0 40px 0px;
+}
+
+.playerInfo {
+    margin: 0 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerInfo span {
+    font-weight: normal;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 200px;
+    height: 50px;
+    padding: 5px 15px;
+    font-size: 22px;
+}
+
+
+
+#section3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 1200px;
+    position: relative;
+    font-size: xx-large;
+    border: black solid 5px;
+    margin: 60px 180px;
+    background-color: rgb(247, 247, 247);
+    font-weight: bold;
+    transition: all .3s;
+    opacity: 1;
+    border-radius: 50px;
+} #section3 h1 {
+    position: absolute;
+    top: 0;
+    margin-top: 20px
+}
+
+#section3 .gameInfo {
+    position: absolute;
+    left:0;
+    margin-left: 40px;
+    top:0;
+    margin-top: 120px;
+} .gameInfo p {
+    margin-top: 20px;
+}
+
+.btn2 {
+    background-color: rgb(255, 255, 255);
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: black solid 3px;
+    z-index: 2;
+    cursor: pointer;
+    transition: all .3s;
+    font-size: 38px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 40px;
+} .btn2:hover {
+    background-color: rgba(255, 255, 255, 0.151);
+}
+.btn2:active {
+    background-color: rgb(234, 234, 234);
+    border: rgb(37, 37, 37) solid 3px;
+    scale: 0.95;
+    color: rgb(66, 66, 66);
+}
+
+
+
+#section4 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 1200px;
+    position: relative;
+    font-size: xx-large;
+    margin: 60px 180px;
+    font-weight: bold;
+    transition: all .3s;
+    opacity: 0;
+    position: absolute;
+}
+
+#section1,#section2 {
+    position: absolute;
+    opacity: 0;
+    transition: all 2.7s;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(to bottom, blue,white 95%);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s, box-shadow 0.1s , scale .7s;
+    transform-style: preserve-3d;
+    margin: 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.canRotation:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    scale: 1.05;
+} .canRotation:active {
+    scale: 0.95;
+}
+
+.choseBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} .cBox h3 {
+    margin-top: 20px;
+    font-size: 28px;
+}

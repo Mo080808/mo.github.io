@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JA</title>
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="image/icon.png">
+    <link rel="stylesheet" href="../static/styles/index.css">
+
+    <style>
+        @keyframes rotate-goBack {
+            from {
+                transform: translateX(100px) translateY(-1400px) scale(6);
+            }
+            to {
+                transform: translate(var(--tx), var(--ty)) scale(1) rotateX(0deg) rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+
+    <main>
+        <section id="section1">
+            <div id="gameBox">
+                <button onclick="moveFunction()" class="btn1">投骰子</button>
+                <div id="Box3D">
+                    <div class="front cubeSide">4</div>
+                    <div class="back cubeSide">3</div>
+                    <div class="left cubeSide">2</div>
+                    <div class="right cubeSide">5</div>
+                    <div class="top cubeSide">1</div>
+                    <div class="bottom cubeSide">6</div>
+                </div>
+                <div class="cell">Start Point</div>
+                <div class="cell">2</div>
+                <div class="cell">3</div>
+                <div class="cell">4</div>
+                <div class="cell">5</div>
+                <div class="cell">6</div>
+                <div class="cell">7</div>
+                <div class="cell">8</div>
+                <div class="cell">9</div>
+                <div class="cell">10</div>
+                <div class="cell">11</div>
+                <div class="cell">12</div>
+                <div class="cell">13</div>
+                <div class="cell">14</div>
+                <div class="cell">15</div>
+                <div class="cell">16</div>
+                <div class="cell">17</div>
+                <div class="cell">18</div>
+                <div class="cell">19</div>
+                <div class="cell">20</div>
+                <div class="cell">21</div>
+                <div class="cell">22</div>
+                <div class="cell">23</div>
+                <div class="cell">24</div>
+                <div class="cell">25</div>
+                <div class="cell">26</div>
+                <div class="cell">27</div>
+                <div class="cell">28</div>
+                <div class="cell">29</div>
+                <div class="cell">30</div>
+                <div class="cell">31</div>
+                <div class="cell">32</div>
+                <div class="cell">33</div>
+                <div class="cell">34</div>
+                <div class="cell">35</div>
+                <div class="cell">36</div>
+                <div id="endBox">
+                    <div id="point4Box">
+                        <div class="point" id="point1"></div>
+                        <div class="point" id="point2"></div>
+                        <div class="point" id="point3"></div>
+                        <div class="point" id="point4"></div>
+                    </div>
+                    <div class="point" id="point5">End Point</div>
+                </div>
+
+                <div id="p1" class="player">P1</div>
+                <div id="p2" class="player">P2</div>
+            
+            </div>
+
+
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+    
+    <script src="../static/javascript/index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <title>Water Fusion Effect</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+        svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .water {
+            fill: #00a;
+            transition: d 2s ease;
+        }
+    </style>
+</head>
+<body>
+    <svg viewBox="0 0 800 600">
+        <path id="water1" class="water" d="M200,300 Q300,100 400,300 Q300,500 200,300 Z"></path>
+        <path id="water2" class="water" d="M600,300 Q700,100 800,300 Q700,500 600,300 Z"></path>
+    </svg>
+    <script>
+        const water1 = document.getElementById("water1");
+        const water2 = document.getElementById("water2");
+
+        function animateFusion() {
+            water1.setAttribute("d", "M400,300 Q500,100 600,300 Q500,500 400,300 Z");
+            water2.setAttribute("d", "M400,300 Q500,100 600,300 Q500,500 400,300 Z");
+        }
+
+        setTimeout(animateFusion, 2000);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <title>requestAnimationFrame Example</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        #box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #00f;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box');
+        let posX = 0;
+        let posY = 0;
+        let directionX = 1;
+        let directionY = 1;
+        const speed = 2;
+
+        function animate() {
+            posX += speed * directionX;
+            posY += speed * directionY;
+
+            if (posX + box.clientWidth > window.innerWidth || posX < 0) {
+                directionX *= -1;
+            }
+            if (posY + box.clientHeight > window.innerHeight || posY < 0) {
+                directionY *= -1;
+            }
+
+            box.style.transform = `translate(${posX}px, ${posY}px)`;
+
+            requestAnimationFrame(animate);
+        }
+
+        // 開始動畫
+        requestAnimationFrame(animate);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <title>requestAnimationFrame with Physics</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        #box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #00f;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box');
+        let posX = 100;
+        let posY = 100;
+        let velocityX = 2;
+        let velocityY = 2;
+        const gravity = 0.5;
+        const friction = 0.98;
+        const bounce = 0.7;
+
+        function animate() {
+            velocityY += gravity;  // 重力影響垂直速度
+            posX += velocityX;
+            posY += velocityY;
+
+            // 碰到邊界時反轉方向並減速
+            if (posX + box.clientWidth > window.innerWidth || posX < 0) {
+                velocityX *= -bounce;
+                posX = Math.max(0, Math.min(posX, window.innerWidth - box.clientWidth));
+            }
+            if (posY + box.clientHeight > window.innerHeight || posY < 0) {
+                velocityY *= -bounce;
+                posY = Math.max(0, Math.min(posY, window.innerHeight - box.clientHeight));
+            }
+
+            // 加入摩擦力
+            velocityX *= friction;
+            velocityY *= friction;
+
+            box.style.transform = `translate(${posX}px, ${posY}px)`;
+
+            requestAnimationFrame(animate);
+        }
+
+        requestAnimationFrame(animate);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Ball with Mouse Collision</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        #box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #00f;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box');
+        let posX = 100;
+        let posY = 100;
+        let velocityX = 0;
+        let velocityY = 0;
+        const gravity = 0.5;
+        const friction = 0.98;
+        const bounce = 0.7;
+
+        let mousePosX = 0;
+        let mousePosY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+            mousePosX = event.clientX;
+            mousePosY = event.clientY;
+
+            const rect = box.getBoundingClientRect();
+            const boxCenterX = rect.left + rect.width / 2;
+            const boxCenterY = rect.top + rect.height / 2;
+
+            const distX = mousePosX - boxCenterX;
+            const distY = mousePosY - boxCenterY;
+            const distance = Math.sqrt(distX * distX + distY * distY);
+
+            if (distance < rect.width / 2) {
+                const angle = Math.atan2(distY, distX);
+                velocityX = Math.cos(angle) * 10;
+                velocityY = Math.sin(angle) * 10;
+            }
+        });
+
+        function animate() {
+            velocityY += gravity;  // 重力影響垂直速度
+            posX += velocityX;
+            posY += velocityY;
+
+            // 碰到邊界時反轉方向並減速
+            if (posX + box.clientWidth > window.innerWidth || posX < 0) {
+                velocityX *= -bounce;
+                posX = Math.max(0, Math.min(posX, window.innerWidth - box.clientWidth));
+            }
+            if (posY + box.clientHeight > window.innerHeight || posY < 0) {
+                velocityY *= -bounce;
+                posY = Math.max(0, Math.min(posY, window.innerHeight - box.clientHeight));
+            }
+
+            // 加入摩擦力以減速
+            velocityX *= friction;
+            velocityY *= friction;
+
+            box.style.transform = `translate(${posX}px, ${posY}px)`;
+
+            requestAnimationFrame(animate);
+        }
+
+        requestAnimationFrame(animate);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Ball with Click Force</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #000;
+        }
+        #box {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #00f;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById('box');
+        let posX = 100;
+        let posY = 100;
+        let velocityX = 0;
+        let velocityY = 0;
+        const gravity = 0.5;
+        const friction = 0.98;
+        const bounce = 0.7;
+
+        box.addEventListener('click', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            const rect = box.getBoundingClientRect();
+            const boxCenterX = rect.left + rect.width / 2;
+            const boxCenterY = rect.top + rect.height / 2;
+
+            const distX = mouseX - boxCenterX;
+            const distY = mouseY - boxCenterY;
+            const angle = Math.atan2(distY, distX);
+            const force = 10; // 力的大小
+
+            velocityX = -Math.cos(angle) * force;
+            velocityY = -Math.sin(angle) * force;
+        });
+
+        function animate() {
+            velocityY += gravity;  // 重力影響垂直速度
+            posX += velocityX;
+            posY += velocityY;
+
+            // 碰到邊界時反轉方向並減速
+            if (posX + box.clientWidth > window.innerWidth || posX < 0) {
+                velocityX *= -bounce;
+                posX = Math.max(0, Math.min(posX, window.innerWidth - box.clientWidth));
+            }
+            if (posY + box.clientHeight > window.innerHeight || posY < 0) {
+                velocityY *= -bounce;
+                posY = Math.max(0, Math.min(posY, window.innerHeight - box.clientHeight));
+            }
+
+            // 加入摩擦力以減速
+            velocityX *= friction;
+            velocityY *= friction;
+
+            box.style.transform = `translate(${posX}px, ${posY}px)`;
+
+            requestAnimationFrame(animate);
+        }
+
+        requestAnimationFrame(animate);
+    </script>
+</body>
+</html>
+
+
+-->
